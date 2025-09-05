@@ -1,28 +1,34 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className={`sidebar ${isOpen ? "open" : "collapsed"}`}>
-      <button className="toggle-btn" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? "⏪" : "⏩"}
+      <button className={`toggle-btn ${isOpen? "open-btn": "close-btn"}`} onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? <ChevronLeft /> : <ChevronRight />}
       </button>
 
       <nav>
         <Link to="/" className="nav-link">
-          {isOpen ? "🏠 Home" : "🏠"}
+          <span role="img" aria-label="home">🏠</span>
+          {isOpen && "Home"}
         </Link>
         <Link to="/eda" className="nav-link">
-          {isOpen ? "📊 EDA" : "📊"}
+        
+          <span role="img" aria-label="eda">📊</span>
+          {isOpen && "EDA"}
         </Link>
         <Link to="/train" className="nav-link">
-          {isOpen ? "⚙️ Train" : "⚙️"}
+          <span role="img" aria-label="train">⚙️</span>
+          {isOpen && "Train"}
         </Link>
         <Link to="/test" className="nav-link">
-          {isOpen ? "🧪 Test" : "🧪"}
+          <span role="img" aria-label="test">🧪</span>
+          {isOpen && "Test"}
         </Link>
       </nav>
     </div>
