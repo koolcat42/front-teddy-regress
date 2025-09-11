@@ -4,20 +4,26 @@ import Home from "./pages/Home";
 import Eda from "./pages/Eda";
 import Train from "./pages/Train";
 import Test from "./pages/Test";
+import ChatbotUI from "./pages/ChatbotUI";
+import MainLayout from "./pages/MainLayout";
+import "./App.css";
 
 function App() {
   return (
-    <div style={{ display: "flex" }}>
-      <Navbar />
-      <div style={{ flex: 1, padding: "20px" }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/eda" element={<Eda />} />
-          <Route path="/train" element={<Train />} />
-          <Route path="/test" element={<Test />} />
-        </Routes>
-      </div>
-    </div>
+    <Routes>
+      {/* Main app routes */}
+      <Route element={<MainLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/eda" element={<Eda />} />
+        <Route path="/train" element={<Train />} />
+        <Route path="/test" element={<Test />} />
+      </Route>
+
+      {/* Chatbot route with its own layout */}
+      <Route>
+        <Route path="/chat" element={<ChatbotUI />} />
+      </Route>
+    </Routes>
   );
 }
 

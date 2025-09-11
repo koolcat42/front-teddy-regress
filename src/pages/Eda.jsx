@@ -1,8 +1,11 @@
 import React from 'react'
-
+import SelectFile from '../components/SelectFile'
 function Eda() {
   return (
-    <div>Welcome to EDA!!</div>
+    <div><p>Welcome to EDA!!</p>
+    <SelectFile />
+    </div>
+
   )
 }
 

@@ -30,6 +30,11 @@ export default function Navbar() {
           <span role="img" aria-label="test">🧪</span>
           {isOpen && "Test"}
         </Link>
+        <Link to="/chat" className="nav-link">
+          <span role="img" aria-label="chat">🗣️</span>
+          {isOpen && "Chat"}
+        </Link>
+        
       </nav>
     </div>
   );
